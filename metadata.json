@@ -1,0 +1,6 @@
+{
+  "name": "Jaga Cuan",
+  "description": "Pencatat keuangan pribadi modern, simpel, cepat, dan offline-first. Catat, atur, dan jaga cuanmu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

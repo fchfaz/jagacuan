@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#4338CA"/>
+    </linearGradient>
+    <linearGradient id="coinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#4F46E5" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background for maskable compatibility -->
+  <rect width="512" height="512" rx="128" fill="#0F172A"/>
+
+  <!-- Shield -->
+  <g filter="url(#glow)">
+    <path d="M 256 70 
+             C 335 70 405 105 405 105 
+             C 405 285 320 385 256 430 
+             C 192 385 107 285 107 105 
+             C 107 105 177 70 256 70 Z" 
+          fill="url(#shieldGrad)" />
+  </g>
+
+  <!-- Inner Shield Accent -->
+  <path d="M 256 94 
+           C 320 94 380 122 380 122 
+           C 380 272 308 360 256 400 
+           C 204 360 132 272 132 122 
+           C 132 122 192 94 256 94 Z" 
+        fill="#4F46E5" opacity="0.6"/>
+
+  <!-- Coin -->
+  <circle cx="256" cy="245" r="95" fill="url(#coinGrad)"/>
+  <circle cx="256" cy="245" r="78" fill="none" stroke="#D97706" stroke-width="4" stroke-dasharray="8 6"/>
+
+  <!-- Rupiah Rp Symbol on Coin -->
+  <text x="256" y="265" 
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-size="68" 
+        font-weight="900" 
+        fill="#78350F" 
+        text-anchor="middle"
+        letter-spacing="-1">Rp</text>
+
+  <!-- Sparkles / Cuan accents -->
+  <path d="M 380 170 Q 380 190 395 190 Q 380 190 380 210 Q 380 190 365 190 Q 380 190 380 170 Z" fill="#FDE68A"/>
+  <path d="M 130 290 Q 130 305 142 305 Q 130 305 130 320 Q 130 305 118 305 Q 130 305 130 290 Z" fill="#FDE68A"/>
+</svg>
