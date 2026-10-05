@@ -4,6 +4,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { AppLayout } from './components/layout/AppLayout';
 import { useAppStore } from './store/useAppStore';
 import { initDatabaseDefaults, seedSampleData, db } from './db/db';
@@ -73,35 +74,38 @@ export default function App() {
   }, [showToast]);
 
   return (
-    <AppLayout>
-      {/* Tab View Routing */}
-      {activeTab === 'dashboard' && <DashboardPage />}
-      {activeTab === 'transactions' && <TransactionsPage />}
-      {activeTab === 'budgets' && <BudgetsPage />}
-      {activeTab === 'reports' && <ReportsPage />}
-      {activeTab === 'wallets' && <WalletsPage />}
-      {activeTab === 'settings' && <SettingsPage />}
+    <>
+      <AppLayout>
+        {/* Tab View Routing */}
+        {activeTab === 'dashboard' && <DashboardPage />}
+        {activeTab === 'transactions' && <TransactionsPage />}
+        {activeTab === 'budgets' && <BudgetsPage />}
+        {activeTab === 'reports' && <ReportsPage />}
+        {activeTab === 'wallets' && <WalletsPage />}
+        {activeTab === 'settings' && <SettingsPage />}
 
-      {/* Form Tambah & Ubah Transaksi (Bottom Sheet di HP, Modal di Desktop) */}
-      <Sheet
-        isOpen={isTransactionModalOpen}
-        onClose={closeTransactionModal}
-        title={editingTransactionId ? 'Ubah Transaksi' : 'Catat Transaksi Cepat'}
-        description={
-          editingTransactionId
-            ? 'Perbarui detail transaksi yang dipilih'
-            : 'Ketik nominal, pilih kategori, dan simpan dalam sekejap'
-        }
-        maxWidth="md"
-      >
-        <TransactionForm />
-      </Sheet>
+        {/* Form Tambah & Ubah Transaksi (Bottom Sheet di HP, Modal di Desktop) */}
+        <Sheet
+          isOpen={isTransactionModalOpen}
+          onClose={closeTransactionModal}
+          title={editingTransactionId ? 'Ubah Transaksi' : 'Catat Transaksi Cepat'}
+          description={
+            editingTransactionId
+              ? 'Perbarui detail transaksi yang dipilih'
+              : 'Ketik nominal, pilih kategori, dan simpan dalam sekejap'
+          }
+          maxWidth="md"
+        >
+          <TransactionForm />
+        </Sheet>
 
-      {/* Onboarding Singkat 3 Layar untuk Pengguna Pertama */}
-      <OnboardingModal
-        isOpen={isOnboardingOpen}
-        onComplete={() => setIsOnboardingOpen(false)}
-      />
-    </AppLayout>
+        {/* Onboarding Singkat 3 Layar untuk Pengguna Pertama */}
+        <OnboardingModal
+          isOpen={isOnboardingOpen}
+          onComplete={() => setIsOnboardingOpen(false)}
+        />
+      </AppLayout>
+      <Analytics />
+    </>
   );
 }
